@@ -1,0 +1,51 @@
+@use 'variables' as *;
+
+// ─── Typography ───────────────────────────────────────────
+@mixin font-display {
+  font-family: $font-display;
+  font-weight: 700;
+}
+
+@mixin font-body {
+  font-family: $font-body;
+}
+
+@mixin font-mono {
+  font-family: $font-mono;
+}
+
+// ─── Breakpoints ──────────────────────────────────────────
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+@mixin screen-sm {
+  @media (min-width: $breakpoint-sm) { @content; }
+}
+
+@mixin screen-md {
+  @media (min-width: $breakpoint-md) { @content; }
+}
+
+@mixin screen-lg {
+  @media (min-width: $breakpoint-lg) { @content; }
+}
+
+@mixin screen-xl {
+  @media (min-width: $breakpoint-xl) { @content; }
+}
+
+// ─── Utilities ────────────────────────────────────────────
+@mixin card {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  box-shadow: $shadow-sm;
+}
+
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

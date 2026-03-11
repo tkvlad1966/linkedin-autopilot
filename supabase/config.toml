@@ -1,0 +1,12 @@
+[project]
+id = "linkedin-autopilot"
+
+[api]
+port = 54321
+schemas = ["public"]
+
+[db]
+port = 54322
+
+[studio]
+port = 54323

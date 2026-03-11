@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "LinkedIn Growth Autopilot",
+  "version": "0.1.0",
+  "description": "Automate LinkedIn outreach and connection management",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.linkedin.com/*"
+  ],
+  "background": {
+    "service_worker": "background/index.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.linkedin.com/*"],
+      "js": ["content/index.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup/index.html",
+    "default_title": "LinkedIn Growth Autopilot"
+  }
+}
