@@ -1,0 +1,91 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  margin-bottom: $space-6;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  color: $color-text-secondary;
+  flex-shrink: 0;
+
+  &:hover {
+    background: $color-surface-2;
+    color: $color-text;
+  }
+}
+
+.nameInput {
+  @include font-display;
+  font-size: 20px;
+  color: $color-text;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: $radius-sm;
+  padding: $space-1 $space-2;
+  outline: none;
+  flex: 1;
+  min-width: 0;
+
+  &:hover {
+    border-color: $color-border;
+  }
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  flex-shrink: 0;
+}
+
+// ── Tabs ────────────────────────────────────────────────────
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid $color-border;
+  margin-bottom: $space-6;
+}
+
+.tab {
+  @include font-body;
+  padding: $space-3 $space-5;
+  font-size: 14px;
+  font-weight: 500;
+  color: $color-text-muted;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    color: $color-text-secondary;
+  }
+
+  &.active {
+    color: $color-primary;
+    border-bottom-color: $color-primary;
+  }
+}
+
+.tabContent {
+  min-height: 300px;
+}
