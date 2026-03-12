@@ -33,6 +33,7 @@ export type QueueAction =
   | 'send_followup'
   | 'like_post'
   | 'view_profile'
+  | 'publish_post'
 
 export type QueueStatus = 'pending' | 'in_progress' | 'done' | 'failed' | 'skipped'
 
@@ -46,6 +47,7 @@ export type QueuePayload =
   | { action: 'send_followup'; message: string; thread_url?: string }
   | { action: 'like_post'; post_url: string }
   | { action: 'view_profile' }
+  | { action: 'publish_post'; content: string }
 
 // ── Table row interfaces ──────────────────────────────────────
 
