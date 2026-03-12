@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "lib": ["ESNext", "DOM"],
+    "types": [],
+    "typeRoots": ["./_shims"]
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"]
+}
