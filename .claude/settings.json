@@ -3,7 +3,8 @@
     "allow": [
       "Bash(npm audit:*)",
       "Bash(/Users/vladtkachuk/Desktop/new_projects/linkedin-autopilot/dashboard/.env:*)",
-      "Bash(supabase functions:*)"
+      "Bash(supabase functions:*)",
+      "Bash(npm run:*)"
     ]
   }
 }
