@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm audit:*)"
+      "Bash(npm audit:*)",
+      "Bash(/Users/vladtkachuk/Desktop/new_projects/linkedin-autopilot/dashboard/.env:*)",
+      "Bash(supabase functions:*)"
     ]
   }
 }
