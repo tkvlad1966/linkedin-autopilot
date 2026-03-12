@@ -1,0 +1,202 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.page {
+  display: flex;
+  min-height: 100vh;
+}
+
+// ─── Left hero panel ─────────────────────────────────────
+.hero {
+  flex: 0 0 60%;
+  background: $color-primary-light;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $space-12;
+  position: relative;
+  overflow: hidden;
+
+  // Subtle dot grid
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, $color-border 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.5;
+  }
+
+  @include screen-md {
+    display: flex;
+  }
+
+  // Hide on small screens
+  @media (max-width: 1023px) {
+    display: none;
+  }
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 480px;
+}
+
+.heroIllustration {
+  width: 200px;
+  height: 200px;
+  background: $color-primary;
+  border-radius: $radius-xl;
+  margin-bottom: $space-10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.heroTagline {
+  @include font-display;
+  font-size: 32px;
+  line-height: 1.2;
+  color: $color-text;
+  margin-bottom: $space-6;
+}
+
+.heroBullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.bullet {
+  @include font-body;
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  font-size: 15px;
+  color: $color-text-secondary;
+}
+
+.bulletIcon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: $color-primary;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+// ─── Right form panel ─────────────────────────────────────
+.formPanel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-8;
+  background: $color-surface;
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-bottom: $space-8;
+}
+
+.cardLogo {
+  width: 40px;
+  height: 40px;
+  background: $color-primary;
+  border-radius: $radius-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.cardTitle {
+  @include font-display;
+  font-size: 20px;
+  color: $color-text;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin: $space-2 0;
+  color: $color-text-muted;
+  font-size: 13px;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: $color-border;
+  }
+}
+
+.magicLink {
+  @include font-body;
+  background: none;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  padding: $space-3 $space-4;
+  font-size: 14px;
+  color: $color-text-secondary;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: center;
+
+  &:hover {
+    border-color: $color-primary;
+    color: $color-primary;
+  }
+}
+
+.footer {
+  @include font-body;
+  margin-top: $space-6;
+  text-align: center;
+  font-size: 14px;
+  color: $color-text-muted;
+
+  a {
+    color: $color-primary;
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.errorMsg {
+  @include font-body;
+  font-size: 13px;
+  color: $color-danger;
+  padding: $space-3;
+  background: $color-danger-light;
+  border-radius: $radius-sm;
+}

@@ -1,0 +1,86 @@
+@use 'sass:color';
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.button {
+  @include font-body;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  border: 1px solid transparent;
+  border-radius: $radius-sm;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// Sizes
+.sm {
+  height: 32px;
+  padding: 0 $space-3;
+  font-size: 13px;
+}
+
+.md {
+  height: 40px;
+  padding: 0 $space-4;
+  font-size: 14px;
+}
+
+.lg {
+  height: 48px;
+  padding: 0 $space-6;
+  font-size: 15px;
+}
+
+// Variants
+.primary {
+  background: $color-primary;
+  color: #fff;
+
+  &:hover:not(:disabled) {
+    background: $color-primary-hover;
+  }
+}
+
+.secondary {
+  background: $color-surface;
+  color: $color-text;
+  border-color: $color-border;
+
+  &:hover:not(:disabled) {
+    background: $color-surface-2;
+    border-color: $color-border-strong;
+  }
+}
+
+.ghost {
+  background: transparent;
+  color: $color-text-secondary;
+
+  &:hover:not(:disabled) {
+    background: $color-surface-2;
+    color: $color-text;
+  }
+}
+
+.danger {
+  background: $color-danger;
+  color: #fff;
+
+  &:hover:not(:disabled) {
+    background: color.adjust($color-danger, $lightness: -8%);
+  }
+}
+
+.fullWidth {
+  width: 100%;
+}

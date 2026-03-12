@@ -1,1 +1,3 @@
-// Page components will be exported from here
+export { Login } from './auth/Login'
+export { Signup } from './auth/Signup'
+export { Callback } from './auth/Callback'

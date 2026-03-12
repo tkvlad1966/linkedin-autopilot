@@ -1,0 +1,15 @@
+@use '../../styles/variables' as *;
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main {
+  margin-left: 240px;
+  margin-top: 56px;
+  flex: 1;
+  padding: $space-6;
+  background: $color-bg;
+  min-height: calc(100vh - 56px);
+}

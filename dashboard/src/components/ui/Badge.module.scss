@@ -1,0 +1,50 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.badge {
+  @include font-body;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 500;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+// Sizes
+.sm {
+  height: 20px;
+  padding: 0 $space-2;
+  font-size: 11px;
+}
+
+.md {
+  height: 24px;
+  padding: 0 $space-3;
+  font-size: 12px;
+}
+
+// Variants
+.success {
+  background: $color-success-light;
+  color: $color-success;
+}
+
+.warning {
+  background: $color-warning-light;
+  color: $color-warning;
+}
+
+.danger {
+  background: $color-danger-light;
+  color: $color-danger;
+}
+
+.info {
+  background: $color-primary-light;
+  color: $color-primary;
+}
+
+.neutral {
+  background: $color-surface-2;
+  color: $color-text-secondary;
+}
