@@ -6,9 +6,7 @@ import { useAuth } from './hooks/useAuth'
 import { supabase } from './lib/supabase'
 import { ToastProvider } from './components/ui/Toast'
 import { DashboardLayout } from './components/layout/DashboardLayout'
-import { Login } from './pages/auth/Login'
-import { Callback } from './pages/auth/Callback'
-import { Signup } from './pages/auth/Signup'
+import { Callback, Login, Signup } from "./pages";
 
 // ── Lazy page placeholders (will be replaced in later prompts) ──
 function Placeholder({ name }: { name: string }) {
