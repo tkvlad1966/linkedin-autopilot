@@ -1,0 +1,232 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 200;
+}
+
+.panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 480px;
+  height: 100vh;
+  background: $color-surface;
+  box-shadow: $shadow-lg;
+  display: flex;
+  flex-direction: column;
+  z-index: 201;
+  overflow-y: auto;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-5 $space-6;
+  border-bottom: 1px solid $color-border;
+}
+
+.panelTitle {
+  @include font-display;
+  font-size: 16px;
+  color: $color-text;
+}
+
+.closeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  color: $color-text-muted;
+
+  &:hover {
+    background: $color-surface-2;
+    color: $color-text;
+  }
+}
+
+.body {
+  flex: 1;
+  padding: $space-6;
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+}
+
+// ── Type selector (segmented) ───────────────────────────────
+.typeSelector {
+  display: flex;
+  gap: $space-1;
+  background: $color-surface-2;
+  border-radius: $radius-sm;
+  padding: $space-1;
+}
+
+.typeOption {
+  @include font-body;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-1;
+  padding: $space-2 $space-1;
+  font-size: 12px;
+  font-weight: 500;
+  color: $color-text-muted;
+  background: none;
+  border: none;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    color: $color-text-secondary;
+  }
+
+  &.selected {
+    background: $color-surface;
+    color: $color-primary;
+    box-shadow: $shadow-sm;
+  }
+}
+
+// ── Delay ───────────────────────────────────────────────────
+.delayRow {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.delayLabel {
+  @include font-body;
+  font-size: 14px;
+  color: $color-text-secondary;
+}
+
+.delayInput {
+  @include font-body;
+  width: 72px;
+  height: 36px;
+  text-align: center;
+  font-size: 14px;
+  color: $color-text;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  outline: none;
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+  }
+}
+
+// ── Message editor ──────────────────────────────────────────
+.messageSection {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.messageSectionLabel {
+  @include font-body;
+  font-size: 13px;
+  font-weight: 500;
+  color: $color-text-secondary;
+}
+
+.textarea {
+  @include font-body;
+  width: 100%;
+  min-height: 140px;
+  padding: $space-3;
+  font-size: 14px;
+  color: $color-text;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  outline: none;
+  resize: vertical;
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+  }
+}
+
+.charCount {
+  @include font-body;
+  font-size: 12px;
+  color: $color-text-muted;
+  text-align: right;
+}
+
+// ── Token chips ─────────────────────────────────────────────
+.tokens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+}
+
+.tokenChip {
+  @include font-mono;
+  font-size: 12px;
+  padding: $space-1 $space-2;
+  background: $color-surface-2;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  color: $color-primary;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background: $color-primary-light;
+    border-color: $color-primary;
+  }
+}
+
+// ── Preview ─────────────────────────────────────────────────
+.preview {
+  background: $color-surface-2;
+  border-radius: $radius-md;
+  padding: $space-4;
+}
+
+.previewLabel {
+  @include font-body;
+  font-size: 12px;
+  font-weight: 600;
+  color: $color-text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: $space-2;
+}
+
+.previewText {
+  @include font-body;
+  font-size: 14px;
+  color: $color-text;
+  white-space: pre-wrap;
+}
+
+// ── Footer ──────────────────────────────────────────────────
+.footer {
+  padding: $space-5 $space-6;
+  border-top: 1px solid $color-border;
+  display: flex;
+  justify-content: flex-end;
+  gap: $space-3;
+}

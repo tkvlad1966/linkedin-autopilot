@@ -1,0 +1,146 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.modal {
+  @include card;
+  width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: $space-6;
+  box-shadow: $shadow-lg;
+}
+
+.heading {
+  @include font-display;
+  font-size: 18px;
+  color: $color-text;
+  margin-bottom: $space-6;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+}
+
+// ── Slider ──────────────────────────────────────────────────
+.sliderGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+}
+
+.sliderLabel {
+  @include font-body;
+  font-size: 13px;
+  font-weight: 500;
+  color: $color-text-secondary;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sliderValue {
+  font-weight: 700;
+  color: $color-primary;
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: $color-surface-2;
+  border-radius: 3px;
+  outline: none;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    background: $color-primary;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}
+
+// ── Time row ────────────────────────────────────────────────
+.timeRow {
+  display: flex;
+  gap: $space-3;
+  align-items: flex-end;
+}
+
+.timeField {
+  flex: 1;
+}
+
+.timeInput {
+  @include font-body;
+  width: 100%;
+  height: 40px;
+  padding: 0 $space-3;
+  font-size: 14px;
+  color: $color-text;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  outline: none;
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+  }
+}
+
+.timeLabel {
+  @include font-body;
+  font-size: 13px;
+  font-weight: 500;
+  color: $color-text-secondary;
+  margin-bottom: $space-1;
+  display: block;
+}
+
+// ── Select ──────────────────────────────────────────────────
+.selectGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+}
+
+.select {
+  @include font-body;
+  width: 100%;
+  height: 40px;
+  padding: 0 $space-3;
+  font-size: 14px;
+  color: $color-text;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  outline: none;
+  cursor: pointer;
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+  }
+}
+
+// ── Footer ──────────────────────────────────────────────────
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: $space-3;
+  margin-top: $space-2;
+}

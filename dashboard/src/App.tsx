@@ -6,15 +6,15 @@ import { useAuth } from './hooks/useAuth'
 import { supabase } from './lib/supabase'
 import { ToastProvider } from './components/ui/Toast'
 import { DashboardLayout } from './components/layout/DashboardLayout'
-import { Callback, Login, Signup } from "./pages";
+import { Callback, Login, Signup } from './pages'
+import { Campaigns } from './pages/Campaigns'
+import { CampaignDetail } from './pages/CampaignDetail'
 
 // ── Lazy page placeholders (will be replaced in later prompts) ──
 function Placeholder({ name }: { name: string }) {
   return <div style={{ padding: 24 }}><h2>{name}</h2><p>Coming soon...</p></div>
 }
 
-function CampaignsPage() { return <Placeholder name="Campaigns" /> }
-function CampaignDetailPage() { return <Placeholder name="Campaign Detail" /> }
 function LeadsPage() { return <Placeholder name="Leads" /> }
 function PostsPage() { return <Placeholder name="Posts" /> }
 function AnalyticsPage() { return <Placeholder name="Analytics" /> }
@@ -78,8 +78,8 @@ export function App() {
           <Route element={<ProtectedRoute />}>
             <Route element={<DashboardLayout />}>
               <Route index element={<Navigate to="/campaigns" replace />} />
-              <Route path="campaigns" element={<CampaignsPage />} />
-              <Route path="campaigns/:id" element={<CampaignDetailPage />} />
+              <Route path="campaigns" element={<Campaigns />} />
+              <Route path="campaigns/:id" element={<CampaignDetail />} />
               <Route path="leads" element={<LeadsPage />} />
               <Route path="posts" element={<PostsPage />} />
               <Route path="analytics" element={<AnalyticsPage />} />

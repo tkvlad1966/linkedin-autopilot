@@ -4,7 +4,9 @@
       "Bash(npm audit:*)",
       "Bash(/Users/vladtkachuk/Desktop/new_projects/linkedin-autopilot/dashboard/.env:*)",
       "Bash(supabase functions:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(npm --workspace=dashboard ls @dnd-kit/modifiers)",
+      "Bash(npm --workspace=dashboard install @dnd-kit/modifiers)"
     ]
   }
 }
