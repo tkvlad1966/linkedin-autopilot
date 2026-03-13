@@ -8,7 +8,11 @@
       "Bash(npm --workspace=dashboard ls @dnd-kit/modifiers)",
       "Bash(npm --workspace=dashboard install @dnd-kit/modifiers)",
       "Bash(supabase --version)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(npm install:*)",
+      "Bash(npx supabase:*)",
+      "Read(//tmp/**)",
+      "Bash(curl -s -w \"\\\\nHTTP_STATUS: %{http_code}\" \"https://vcuumedcpyizmeggiqea.supabase.co/functions/v1/extension-auth\" -H \"Content-Type: application/json\" -H \"apikey: sb_publishable_V3CUj2pNmzl8yZV-U5RZ6Q_YvcFC550\" -H \"Authorization: Bearer sb_publishable_V3CUj2pNmzl8yZV-U5RZ6Q_YvcFC550\" -d '{\"\"extension_token\"\":\"\"0bc0ecda-ad26-4068-b822-843bbf2836e4\"\"}')"
     ],
     "additionalDirectories": [
       "/Users/vladtkachuk/Desktop/new_projects/linkedin-autopilot/dashboard/src/components"

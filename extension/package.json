@@ -7,12 +7,20 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.0.0"
+    "@supabase/supabase-js": "^2.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.270",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
     "copy-webpack-plugin": "^12.0.0",
+    "css-loader": "^7.0.0",
     "dotenv-webpack": "^8.0.0",
+    "sass": "^1.70.0",
+    "sass-loader": "^14.0.0",
+    "style-loader": "^4.0.0",
     "ts-loader": "^9.0.0",
     "typescript": "^5.0.0",
     "webpack": "^5.0.0",
