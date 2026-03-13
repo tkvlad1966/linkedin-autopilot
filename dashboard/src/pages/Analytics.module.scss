@@ -1,0 +1,194 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+}
+
+// ── Header ──────────────────────────────────────────────────
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  @include font-display;
+  font-size: 24px;
+  color: $color-text;
+}
+
+// ── Period selector pills ───────────────────────────────────
+
+.periodSelector {
+  display: flex;
+  gap: $space-1;
+  background: $color-surface-2;
+  border-radius: $radius-sm;
+  padding: $space-1;
+}
+
+.periodPill {
+  @include font-body;
+  padding: $space-1 $space-3;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: $radius-sm;
+  border: none;
+  background: transparent;
+  color: $color-text-muted;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    color: $color-text;
+  }
+}
+
+.periodActive {
+  background: $color-surface;
+  color: $color-primary;
+  box-shadow: $shadow-sm;
+}
+
+// ── KPI grid ────────────────────────────────────────────────
+
+.kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-4;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ── Chart row (2 columns) ───────────────────────────────────
+
+.chartRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-4;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ── Top Campaigns Table ─────────────────────────────────────
+
+.tableCard {
+  @include card;
+  padding: $space-5;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.tableTitle {
+  @include font-body;
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-text;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.th {
+  @include font-body;
+  padding: $space-3 $space-4;
+  font-size: 12px;
+  font-weight: 600;
+  color: $color-text-muted;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: $color-surface-2;
+  border-bottom: 1px solid $color-border;
+  white-space: nowrap;
+
+  &:first-child {
+    border-radius: $radius-sm 0 0 0;
+  }
+
+  &:last-child {
+    border-radius: 0 $radius-sm 0 0;
+  }
+}
+
+.tr {
+  transition: background 0.1s ease;
+
+  &:hover {
+    background: $color-primary-light;
+  }
+
+  &:not(:last-child) td {
+    border-bottom: 1px solid $color-border;
+  }
+}
+
+.td {
+  @include font-body;
+  padding: $space-3 $space-4;
+  font-size: 13px;
+  color: $color-text;
+  white-space: nowrap;
+}
+
+.campaignName {
+  font-weight: 500;
+}
+
+.rateBadge {
+  @include font-body;
+  display: inline-block;
+  padding: 2px $space-2;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 999px;
+
+  &[data-rate='high'] {
+    background: $color-success-light;
+    color: $color-success;
+  }
+
+  &[data-rate='mid'] {
+    background: $color-warning-light;
+    color: $color-warning;
+  }
+
+  &[data-rate='low'] {
+    background: $color-danger-light;
+    color: $color-danger;
+  }
+}
+
+.empty {
+  @include font-body;
+  display: block;
+  text-align: center;
+  padding: $space-6 0;
+  color: $color-text-muted;
+  font-size: 14px;
+}
