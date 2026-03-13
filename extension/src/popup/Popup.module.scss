@@ -1,0 +1,385 @@
+// ─── Design tokens (subset of dashboard variables) ──────────
+
+$color-primary: #2563eb;
+$color-primary-hover: #1d4ed8;
+$color-success: #16a34a;
+$color-danger: #dc2626;
+$color-text: #0f172a;
+$color-text-secondary: #475569;
+$color-text-muted: #94a3b8;
+$color-border: #dde3ef;
+$color-surface-2: #f1f4f9;
+$font-display: 'Syne', sans-serif;
+$font-body: 'DM Sans', sans-serif;
+$font-mono: 'JetBrains Mono', monospace;
+
+// ─── Onboarding (State A) ───────────────────────────────────
+
+.onboarding {
+  display: flex;
+  flex-direction: column;
+  height: 460px;
+}
+
+.onboardingHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  border-bottom: 1px solid $color-border;
+}
+
+.logoIcon {
+  width: 28px;
+  height: 28px;
+  background: $color-primary;
+  color: #fff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-display;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.logoText {
+  font-family: $font-display;
+  font-size: 14px;
+  font-weight: 700;
+  color: $color-text;
+}
+
+.onboardingBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.lockIcon {
+  margin-bottom: 16px;
+}
+
+.onboardingTitle {
+  font-family: $font-display;
+  font-size: 18px;
+  font-weight: 700;
+  color: $color-text;
+  margin-bottom: 8px;
+}
+
+.onboardingDesc {
+  font-family: $font-body;
+  font-size: 13px;
+  color: $color-text-muted;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.tokenInput {
+  width: 100%;
+  font-family: $font-mono;
+  font-size: 12px;
+  padding: 10px;
+  border: 1px solid $color-border;
+  border-radius: 8px;
+  resize: none;
+  outline: none;
+  color: $color-text;
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+  }
+}
+
+.error {
+  font-family: $font-body;
+  font-size: 12px;
+  color: $color-danger;
+  margin-top: 8px;
+  text-align: left;
+}
+
+.connectBtn {
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px;
+  font-family: $font-body;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: $color-primary;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+
+  &:hover:not(:disabled) {
+    background: $color-primary-hover;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// ─── Connected (State B) ────────────────────────────────────
+
+.connected {
+  display: flex;
+  flex-direction: column;
+  height: 460px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: $color-primary;
+  color: #fff;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.headerLogo {
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-display;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.headerTitle {
+  font-family: $font-display;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.body {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+// ── Status card ──────────────────────────────────────────────
+
+.statusCard {
+  background: #fff;
+  border: 1px solid $color-border;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.statusRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.statusDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  &.active {
+    background: $color-success;
+    box-shadow: 0 0 0 3px rgba($color-success, 0.2);
+    animation: pulse 2s infinite;
+  }
+
+  &.paused {
+    background: #f59e0b;
+    box-shadow: 0 0 0 3px rgba(#f59e0b, 0.2);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.statusText {
+  font-family: $font-display;
+  font-size: 16px;
+  font-weight: 700;
+
+  &.active { color: $color-success; }
+  &.paused { color: #f59e0b; }
+}
+
+.taskText {
+  font-family: $font-body;
+  font-size: 12px;
+  color: $color-text-secondary;
+}
+
+// ── Stats row ────────────────────────────────────────────────
+
+.statsRow {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid $color-border;
+  border-radius: 10px;
+  padding: 12px 0;
+}
+
+.statItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.statValue {
+  font-family: $font-display;
+  font-size: 20px;
+  font-weight: 700;
+  color: $color-text;
+}
+
+.statLabel {
+  font-family: $font-body;
+  font-size: 11px;
+  color: $color-text-muted;
+}
+
+.statDivider {
+  width: 1px;
+  height: 32px;
+  background: $color-border;
+}
+
+// ── Info rows ────────────────────────────────────────────────
+
+.infoRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: $font-body;
+  font-size: 12px;
+  color: $color-text-secondary;
+  padding: 4px 0;
+}
+
+// ── Progress bar ─────────────────────────────────────────────
+
+.progressSection {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.progressLabel {
+  font-family: $font-body;
+  font-size: 12px;
+  color: $color-text-secondary;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 4px;
+  background: $color-surface-2;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  background: $color-primary;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+// ── Toggle button ────────────────────────────────────────────
+
+.toggleBtn {
+  width: 100%;
+  padding: 12px;
+  font-family: $font-body;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin-top: auto;
+}
+
+.pauseBtn {
+  background: #fff;
+  color: $color-danger;
+  border: 1.5px solid $color-danger;
+
+  &:hover {
+    background: rgba($color-danger, 0.05);
+  }
+}
+
+.resumeBtn {
+  background: $color-success;
+  color: #fff;
+  border: 1.5px solid $color-success;
+
+  &:hover {
+    background: darken($color-success, 8%);
+  }
+}
+
+// ── Footer ───────────────────────────────────────────────────
+
+.footer {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid $color-border;
+  padding: 0;
+}
+
+.footerLink {
+  flex: 1;
+  padding: 12px;
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: 500;
+  color: $color-text-secondary;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.footerDivider {
+  width: 1px;
+  height: 20px;
+  background: $color-border;
+}

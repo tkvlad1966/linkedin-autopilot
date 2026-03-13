@@ -94,7 +94,8 @@ export async function processQueue(): Promise<void> {
   try {
     client = await getAuthenticatedClient()
   } catch (err) {
-    logger.error('Failed to get authenticated client', err)
+    // Expected when extension is not linked yet — skip silently
+    logger.debug('Skipping queue — not authenticated', err)
     return
   }
 

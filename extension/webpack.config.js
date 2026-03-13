@@ -13,7 +13,7 @@ module.exports = {
     // MV3: flat output names match manifest.json references
     background: './src/background/service-worker.ts',
     content:    './src/content/index.ts',
-    popup:      './src/popup/index.ts',
+    popup:      './src/popup/index.tsx',
   },
 
   output: {
@@ -28,6 +28,23 @@ module.exports = {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
+      },
+      {
+        test: /\.module\.scss$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: isDev ? '[name]__[local]' : '[hash:base64:6]',
+                namedExport: false,
+              },
+              esModule: false,
+            },
+          },
+          'sass-loader',
+        ],
       },
     ],
   },
