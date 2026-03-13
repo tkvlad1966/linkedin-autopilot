@@ -1,0 +1,132 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.calendar {
+  @include card;
+  padding: $space-4;
+}
+
+// ── Header ─────────────────────────────────────────────────
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $space-4;
+}
+
+.monthLabel {
+  @include font-display;
+  font-size: 15px;
+  color: $color-text;
+}
+
+.navBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: none;
+  border-radius: $radius-sm;
+  color: $color-text-secondary;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background: $color-surface-2;
+    color: $color-text;
+  }
+}
+
+// ── Weekday labels ─────────────────────────────────────────
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: $space-1;
+}
+
+.weekday {
+  @include font-body;
+  font-size: 11px;
+  font-weight: 600;
+  color: $color-text-muted;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: $space-1 0;
+}
+
+// ── Days grid ──────────────────────────────────────────────
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: 100%;
+  aspect-ratio: 1;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+
+  &:hover {
+    background: $color-surface-2;
+  }
+
+  &.outside {
+    opacity: 0.3;
+  }
+
+  &.today {
+    background: $color-primary;
+
+    .dayNumber {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .dot {
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    &:hover {
+      background: $color-primary-hover;
+    }
+  }
+
+  &.selected:not(.today) {
+    background: $color-primary-light;
+    border: 2px solid $color-primary;
+
+    .dayNumber {
+      color: $color-primary;
+      font-weight: 700;
+    }
+  }
+}
+
+.dayNumber {
+  @include font-body;
+  font-size: 13px;
+  color: $color-text;
+  line-height: 1;
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: $color-primary;
+  position: absolute;
+  bottom: 4px;
+}
