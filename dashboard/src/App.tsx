@@ -12,13 +12,7 @@ import { CampaignDetail } from './pages/CampaignDetail'
 import { Leads } from './pages/Leads'
 import { Posts } from './pages/Posts'
 import { Analytics } from './pages/Analytics'
-
-// ── Lazy page placeholders (will be replaced in later prompts) ──
-function Placeholder({ name }: { name: string }) {
-  return <div style={{ padding: 24 }}><h2>{name}</h2><p>Coming soon...</p></div>
-}
-
-function SettingsPage() { return <Placeholder name="Settings" /> }
+import { Settings } from './pages/Settings'
 
 // ── Protected route guard ─────────────────────────────────────
 function ProtectedRoute() {
@@ -83,7 +77,7 @@ export function App() {
               <Route path="leads" element={<Leads />} />
               <Route path="posts" element={<Posts />} />
               <Route path="analytics" element={<Analytics />} />
-              <Route path="settings" element={<SettingsPage />} />
+              <Route path="settings" element={<Settings />} />
             </Route>
           </Route>
 
