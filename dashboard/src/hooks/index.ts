@@ -10,3 +10,9 @@ export {
   useDeleteStep,
   useReorderSteps,
 } from './useCampaigns'
+export {
+  usePosts,
+  useCreatePost,
+  useUpdatePost,
+  useDeletePost,
+} from './usePosts'
