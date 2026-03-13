@@ -17,6 +17,9 @@ chrome.runtime.onInstalled.addListener(async ({ reason }) => {
   for (const [key, value] of Object.entries(DEFAULT_SETTINGS)) {
     if (currentSettings[key] === undefined) missing[key] = value
   }
+  // Always update URL + keys so stale values from prior installs are overwritten
+  if (DEFAULT_SETTINGS.supabaseUrl) missing.supabaseUrl = DEFAULT_SETTINGS.supabaseUrl
+  if (DEFAULT_SETTINGS.supabaseAnonKey) missing.supabaseAnonKey = DEFAULT_SETTINGS.supabaseAnonKey
   if (Object.keys(missing).length > 0) {
     await chrome.storage.sync.set(missing)
   }

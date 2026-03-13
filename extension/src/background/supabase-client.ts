@@ -11,13 +11,20 @@ const REFRESH_BUFFER_MS = 5 * 60 * 1000  // refresh 5 min before expiry
 
 export async function exchangeExtensionToken(extensionToken: string): Promise<string> {
   const settings = await getSettings()
-  const url = (settings.supabaseUrl || process.env.SUPABASE_URL!) + EDGE_FN_PATH
+  const url = (process.env.SUPABASE_URL! || settings.supabaseUrl) + EDGE_FN_PATH
 
   logger.info('Exchanging extension token…')
 
+  // Prefer .env value — storage may have stale keys from prior installs
+  const anonKey = process.env.SUPABASE_ANON_KEY! || settings.supabaseAnonKey
+
   const res = await fetch(url, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': anonKey,
+      'Authorization': `Bearer ${anonKey}`,
+    },
     body: JSON.stringify({ extension_token: extensionToken }),
   })
 

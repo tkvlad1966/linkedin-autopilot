@@ -4,19 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LinkedIn Growth Autopilot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Syne:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
       body {
-        width: 320px;
-        min-height: 200px;
+        width: 360px;
+        height: 460px;
         font-family: 'DM Sans', system-ui, sans-serif;
-        padding: 16px;
-        margin: 0;
+        background: #ffffff;
+        overflow-y: auto;
       }
     </style>
   </head>
   <body>
-    <h3>LinkedIn Growth Autopilot</h3>
-    <p>Extension popup — connect your account in the dashboard.</p>
-    <script src="index.js"></script>
+    <div id="root"></div>
+    <script src="popup.js"></script>
   </body>
 </html>
