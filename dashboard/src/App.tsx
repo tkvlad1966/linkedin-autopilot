@@ -10,13 +10,13 @@ import { Callback, Login, Signup } from './pages'
 import { Campaigns } from './pages/Campaigns'
 import { CampaignDetail } from './pages/CampaignDetail'
 import { Leads } from './pages/Leads'
+import { Posts } from './pages/Posts'
 
 // ── Lazy page placeholders (will be replaced in later prompts) ──
 function Placeholder({ name }: { name: string }) {
   return <div style={{ padding: 24 }}><h2>{name}</h2><p>Coming soon...</p></div>
 }
 
-function PostsPage() { return <Placeholder name="Posts" /> }
 function AnalyticsPage() { return <Placeholder name="Analytics" /> }
 function SettingsPage() { return <Placeholder name="Settings" /> }
 
@@ -81,7 +81,7 @@ export function App() {
               <Route path="campaigns" element={<Campaigns />} />
               <Route path="campaigns/:id" element={<CampaignDetail />} />
               <Route path="leads" element={<Leads />} />
-              <Route path="posts" element={<PostsPage />} />
+              <Route path="posts" element={<Posts />} />
               <Route path="analytics" element={<AnalyticsPage />} />
               <Route path="settings" element={<SettingsPage />} />
             </Route>

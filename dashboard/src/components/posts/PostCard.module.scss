@@ -1,0 +1,103 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.card {
+  @include card;
+  padding: $space-4;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  transition: box-shadow 0.15s ease;
+
+  &:hover {
+    box-shadow: $shadow-md;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-3;
+}
+
+.time {
+  @include font-body;
+  font-size: 12px;
+  color: $color-text-muted;
+}
+
+.content {
+  @include font-body;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: $color-text;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  padding-top: $space-2;
+  border-top: 1px solid $color-border;
+}
+
+.actionBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: none;
+  border-radius: $radius-sm;
+  color: $color-text-muted;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background: $color-surface-2;
+    color: $color-text;
+  }
+
+  &.danger:hover {
+    background: $color-danger-light;
+    color: $color-danger;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.postNowBtn {
+  @include font-body;
+  display: inline-flex;
+  align-items: center;
+  gap: $space-1;
+  margin-left: auto;
+  height: 28px;
+  padding: 0 $space-3;
+  font-size: 12px;
+  font-weight: 500;
+  background: $color-primary-light;
+  color: $color-primary;
+  border: none;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background: $color-primary;
+    color: #fff;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
