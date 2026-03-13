@@ -7,7 +7,11 @@
       "Bash(npm run:*)",
       "Bash(npm --workspace=dashboard ls @dnd-kit/modifiers)",
       "Bash(npm --workspace=dashboard install @dnd-kit/modifiers)",
-      "Bash(supabase --version)"
+      "Bash(supabase --version)",
+      "Bash(npx tsc:*)"
+    ],
+    "additionalDirectories": [
+      "/Users/vladtkachuk/Desktop/new_projects/linkedin-autopilot/dashboard/src/components"
     ]
   }
 }
